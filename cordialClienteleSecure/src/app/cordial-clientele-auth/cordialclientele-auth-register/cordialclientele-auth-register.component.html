@@ -1,0 +1,64 @@
+<div class="row">
+  <div class="container container-fluid">
+    <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-12">
+      <md-card>
+        <md-card-content>
+        <form [formGroup]="cordialRegisterForms" (ngSubmit)="onCordialRegister()">
+          <div formGroupName="cordialRegister">
+            <div class="form-group">
+              <label for="firstName">FirstName </label>
+              <input formControlName="firstName" type="text" class="form-control"/>
+              <span class="help-block" *ngIf="cordialRegisterForms.get('cordialRegister.firstName').touched && !cordialRegisterForms.get('cordialRegister.firstName').valid">
+                  <span class="cordialRegisterForms.get('cordialRegister.firstName').errors['required']">
+                      Please enter your firstName </span>
+              </span>
+            </div>
+            <div class="form-group">
+              <label for="lastName">LastName</label>
+              <input formControlName="lastName" type="text" class="form-control"/>
+              <span class="help-block" *ngIf="cordialRegisterForms.get('cordialRegister.lastName').touched && !cordialRegisterForms.get('cordialRegister.lastName').valid">
+                <span class="cordialRegisterForms.get('cordialRegister.lastName').errors['required']">
+                  Please enter your lastName </span>
+                </span>
+              </div>
+              <div class="form-group">
+                <label for="Email"> Email</label>
+                <input formControlName="Email" type="text" class="form-control"/>
+                <span class="help-block" *ngIf="cordialRegisterForms.get('cordialRegister.Email').touched && !cordialRegisterForms.get('cordialRegister.Email').valid">
+                    <span class="cordialRegisterForms.get('cordialRegister.Email').errors['required']">
+                        Please enter your valid Email</span> 
+                </span>
+                </div>
+                <div class="form-group">
+                  <label for="Password"> Password </label>
+                  <input formControlName="Password" type="password" class="form-control">
+                  <span class="help-block" *ngIf="cordialRegisterForms.get('cordialRegister.Password').touched && !cordialRegisterForms.get('cordialRegister.Password').valid">
+                      <span class="cordialRegisterForms.get('cordialRegister.Password').errors['required']">
+                          Please choose a password </span>  
+                  </span>
+                  </div>
+                  <div class="form-group">
+                    <label for="ConfirmPassword">Confirm Password</label>
+                    <input formControlName="ConfirmPassword" type="password" class="form-control"/>
+                    <span class="help-block" *ngIf="cordialRegisterForms.get('cordialRegister.ConfirmPassword').touched && !cordialRegisterForms.get('cordialRegister.ConfirmPassword').valid">
+                        <span class="cordialRegisterForms.get('cordialRegister.ConfirmPassword').errors['required']">
+                            Please cofirm your password </span>  
+                    </span>
+                    </div>
+                    <div class="form-group">
+                      <input type="checkbox" formControlName="TermsAndConditions"/>
+                      <label> Terms and conditions</label>
+                      <span class="help-block" *ngIf="!cordialRegisterForms.get('cordialRegister.TermsAndConditions').valid && cordialRegisterForms.get('cordialRegister.TermsAndConditions').touched">
+                        <span class="cordialRegisterForms.get('cordialRegister.TermsAndConditions').errors['requiredTrue']">
+                          Please accept the terms and conditions
+                        </span>
+                      </span>
+                      </div>
+          </div>
+          <button class="btn btn-primary form-control"[disabled]="!cordialRegisterForms.get('cordialRegister').valid" type="submit">Register</button>
+        </form>
+        </md-card-content>
+      </md-card>
+    </div>
+  </div>
+</div>
