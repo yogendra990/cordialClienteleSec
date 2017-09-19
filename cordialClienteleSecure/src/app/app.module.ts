@@ -6,7 +6,10 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { App } from './app.router';
 
-import { HttpModule } from '@angular/http';
+// import { HttpModule } from '@angular/http';
+
+//import { HttpClient } from '@angular/common/http';
+
 import { MdCardModule, MdIconModule } from '@angular/material';
 import { CordialHomeComponent } from './CordialClientele-static/cordial-home/cordial-home.component';
 import { CordialAboutComponent } from './CordialClientele-static/cordial-about/cordial-about.component';
@@ -20,7 +23,7 @@ import { CordialContactComponent } from './CordialClientele-static/cordial-conta
 import { CordialXMLServices } from './cordial-services/cordial-xml-services';
 
 //import kendo-UI Buttons and angular-animations
-
+import { GridModule } from '@progress/kendo-angular-grid';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { ButtonsModule } from "@progress/kendo-angular-buttons";
@@ -43,7 +46,9 @@ import { ButtonsModule } from "@progress/kendo-angular-buttons";
     FormsModule,
     BrowserAnimationsModule,
     ButtonsModule,
-    ReactiveFormsModule  
+    ReactiveFormsModule,
+    GridModule,
+   // HttpClient 
   ],
 providers: [ CordialXMLServices],
   bootstrap: [AppComponent]

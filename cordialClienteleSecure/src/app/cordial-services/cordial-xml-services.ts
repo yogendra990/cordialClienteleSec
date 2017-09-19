@@ -1,17 +1,23 @@
 import { Injectable } from '@angular/core';
-import {Http, Response, URLSearchParams, RequestOptions, Headers } from '@angular/http';
+// import {Http, Response, URLSearchParams, RequestOptions, Headers } from '@angular/http';
+// implementing HttpClient from '@angular/common/http';
+import { HttpClient, HttpParams} from '@angular/common/http';
 import * as Rx from 'rxjs/RX';
 
 @Injectable()
 export class CordialXMLServices {
-    constructor(private CordialXhr:Http ){}
+    constructor(private CordialXhr:HttpClient ){}
     
     GetXml(){
         const Header = new Headers();
-
-       return  this.CordialXhr.get("http://samples.openweathermap.org/data/2.5/weather?zip=94040,us&appid=b1b15e88fa797225412429c1c50c122a1",{headers:Header})
-        .map((response:Response)=>{
-            const XmlData = response.json();
+        // let UrlSearchParams = new URLSearchParams();
+        // UrlSearchParams.set('api_key','R2FbKozMOIvb7THVdi5BBT40VDY3DyMWxMreThub');
+        //  UrlSearchParams.set('page','4');
+        // let requestOptions = new RequestOptions();
+        // requestOptions.search = UrlSearchParams;
+       return  this.CordialXhr.get("https://api.ed.gov/data/mbk-bachelors-or-higher?api_key=R2FbKozMOIvb7THVdi5BBT40VDY3DyMWxMreThub&per_page=10")
+        .map((response)=>{
+            const XmlData = response;
             return XmlData;
         });
     }
